@@ -1,0 +1,28 @@
+{%extends 'Crypto_news_app/base.html'%}
+{%block content%}
+<h3>Here are prices for the top crypto currencie in USD and EURO </h3>
+<div class="row">
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr class="table-primary">
+                <th scope="col">NAME</th>
+                <th scope="col">OPENDAY</th>
+                <th scope="col">HIGHDAY</th>
+                <th scope="col">LOWDAY</th>
+                <th scope="col">MKTCAP</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for key,value in price_api.DISPLAY.items%}
+            <tr>
+                <td>{{key}}</td>
+                <td>{{value.USD.OPENDAY}}</td>
+                <td>{{value.USD.HIGHDAY}}</td>
+                <td>{{value.USD.LOWDAY}}</td>
+                <td>{{value.USD.MKTCAP}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+{%endblock%}
