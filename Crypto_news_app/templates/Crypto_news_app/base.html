@@ -27,12 +27,13 @@
                     <a class="nav-link" href="{%url 'prices'%}">crypto prices</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Lookup crypto</a>
+                    <a class="nav-link" href="{% url 'searchcrypto' %}">Lookup crypto</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'searchcrypto' %}">
+                {% csrf_token %}
+                <input class="form-control mr-sm-2" type="search" placeholder="Lookup Crypto" aria-label="Search" name="quote">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Look Up</button>
             </form>
         </div>
     </nav>
